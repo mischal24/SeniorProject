@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://c0cqiag7i4px4"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7e18o"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_sux0h"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_x6kob"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_nh1q1"]
+normal = Vector2(0, 1)
+
+[node name="TestScene" type="Node2D"]
+
+[node name="Bounds" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Bounds"]
+position = Vector2(0, 648)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bounds/StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_7e18o")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Bounds"]
+position = Vector2(-576, 548)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bounds/StaticBody2D2"]
+shape = SubResource("WorldBoundaryShape2D_sux0h")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Bounds"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bounds/StaticBody2D3"]
+position = Vector2(576, 548)
+shape = SubResource("WorldBoundaryShape2D_x6kob")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Bounds"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bounds/StaticBody2D4"]
+shape = SubResource("WorldBoundaryShape2D_nh1q1")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, 324)

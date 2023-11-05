@@ -1,0 +1,10 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1698872853
+bomb.gd::GDScript::-1::1698829542::0::1::::Bomb_Class<>CharacterBody2D<>::
+bomb.tscn::PackedScene::2548290862161870038::1698872323::0::1::::<><>::res://bomb.gd<>uid://oucdusathm4r::::res://icon.svg
+icon.svg::CompressedTexture2D::1024059235680059267::1698284799::1698872855::1::::<><>::
+local_multiplayer.gd::GDScript::-1::1698871920::0::1::::<>Node2D<>::
+local_multiplayer.tscn::PackedScene::1337125760893533036::1698872322::0::1::::<><>::res://local_multiplayer.gd<>uid://7jdh8mynf31u::::res://player.tscn<>uid://bckn8i11kwnxe::::res://bomb.tscn
+player.gd::GDScript::-1::1698871934::0::1::::Player_Class<>CharacterBody2D<>::
+player.tscn::PackedScene::2264818800655468016::1698872322::0::1::::<><>::uid://oucdusathm4r::::res://icon.svg<>res://player.gd
+test_scene.tscn::PackedScene::6532676982815242575::1698872322::0::1::::<><>::

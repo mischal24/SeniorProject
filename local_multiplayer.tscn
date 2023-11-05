@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://tbyjbn6xhb6c"]
+
+[ext_resource type="Script" path="res://local_multiplayer.gd" id="1_2atg6"]
+[ext_resource type="PackedScene" uid="uid://7jdh8mynf31u" path="res://player.tscn" id="2_s775i"]
+[ext_resource type="PackedScene" uid="uid://bckn8i11kwnxe" path="res://bomb.tscn" id="3_oidwx"]
+
+[node name="LocalMultiplayer" type="Node2D"]
+script = ExtResource("1_2atg6")
+player_tscn = ExtResource("2_s775i")
+bomb_tscn = ExtResource("3_oidwx")
+
+[node name="BombTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[connection signal="timeout" from="BombTimer" to="." method="_on_bomb_timer_timeout"]
