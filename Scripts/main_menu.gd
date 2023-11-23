@@ -1,23 +1,15 @@
 extends Control
 
-## Variables ##
-var game_scene : String = "res://Scenes/level_select_menu.tscn"
-var resolutions : Array[Vector2] = [
-	Vector2(1700, 1063),
-	Vector2(1700, 956),
-	Vector2(1920, 1200),
-	Vector2(1920, 1080)
-]
-
 ## Setup ##
 func _ready():
-	for i in resolutions.size():
-		$OptionsPanel/ResolutionButton.add_item(str(resolutions[i].x)+"x"+str(resolutions[i].y),i)
-		$OptionsPanel/ResolutionButton.selected = 1
+	for i in GameData.resolutions.size():
+		$OptionsPanel/ResolutionButton.add_item(str(GameData.resolutions[i].x)+"x"+str(GameData.resolutions[i].y),i)
+		$OptionsPanel/ResolutionButton.selected = GameData.default_resolution
+		set_res(GameData.resolutions[GameData.default_resolution])
 
 ## Interactions ##
 func _on_start_button_pressed():
-	get_tree().change_scene_to_file(game_scene)
+	get_tree().change_scene_to_file(GameData.game_scene)
 
 func _on_options_button_pressed():
 	$MenuPanel.hide()
@@ -49,7 +41,7 @@ func set_res(res):
 	DisplayServer.window_set_size(res)
 
 func _on_option_button_item_selected(index):
-	set_res(resolutions[index])
+	set_res(GameData.resolutions[index])
 
 #fullscreen
 func fullscreen(t):

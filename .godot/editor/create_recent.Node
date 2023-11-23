@@ -1,3 +1,6 @@
+TileMap
+CanvasLayer
+Camera2D
 Label
 Panel
 OptionButton
@@ -8,4 +11,3 @@ MenuButton
 CheckBox
 TextureRect
 HBoxContainer
-CanvasLayer

@@ -51,6 +51,6 @@ func _physics_process(delta):
 func throw_bomb(throw_rotation):
 	if LocalMultiplayer.player_with_bomb == self and throw_rotation != Vector2.ZERO:
 		var throw_position = global_position + (throw_rotation * 85)
-		LocalMultiplayer.spawn_bomb(throw_position, (throw_rotation * (LocalMultiplayer.initial_speed * 2)), false)
+		LocalMultiplayer.spawn_bomb(throw_position, (throw_rotation * (GameData.initial_bomb_speed * 2)), false)
 	else:
 		pass

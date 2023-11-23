@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqefxayl102d"]
+
+[ext_resource type="Script" path="res://System/game_data.gd" id="1_xpfco"]
+[ext_resource type="PackedScene" uid="uid://bc2ksprqcs01u" path="res://Maps/test_map.tscn" id="2_rexfv"]
+
+[node name="GameData" type="Node2D"]
+script = ExtResource("1_xpfco")
+maps = Array[PackedScene]([ExtResource("2_rexfv")])
+resolutions = Array[Vector2]([Vector2(1700, 956), Vector2(1920, 1080)])

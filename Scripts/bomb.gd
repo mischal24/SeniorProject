@@ -6,7 +6,7 @@ func _physics_process(delta):
 	var collision_info = move_and_collide(velocity * delta)
 	if collision_info:
 		velocity = velocity.bounce(collision_info.get_normal())
-		velocity *= Vector2(1.05, 1.05)
+		velocity *= Vector2(GameData.additive_bomb_speed, GameData.additive_bomb_speed)
 
 ## Collide ##
 func _on_area_2d_body_entered(body):
