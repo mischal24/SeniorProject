@@ -1,0 +1,85 @@
+[gd_scene load_steps=2 format=3 uid="uid://bc33x38k4uu5u"]
+
+[ext_resource type="Script" path="res://Scripts/level_select_menu.gd" id="1_6o0w2"]
+
+[node name="LevelSelectMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6o0w2")
+
+[node name="MenuPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="StartButton" type="Button" parent="MenuPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.701176
+anchor_top = 0.432008
+anchor_right = 0.874118
+anchor_bottom = 0.573222
+grow_horizontal = 2
+grow_vertical = 2
+text = "Start"
+metadata/_edit_use_anchors_ = true
+
+[node name="ChooseMapButton" type="OptionButton" parent="MenuPanel"]
+layout_mode = 0
+anchor_left = 0.18
+anchor_top = 0.448745
+anchor_right = 0.451765
+anchor_bottom = 0.51046
+metadata/_edit_use_anchors_ = true
+
+[node name="BackButton" type="Button" parent="MenuPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.947059
+anchor_top = 0.922594
+anchor_right = 1.0
+anchor_bottom = 1.0
+metadata/_edit_use_anchors_ = true
+
+[node name="PlayerLabel" type="Label" parent="MenuPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.182353
+anchor_top = 0.373431
+anchor_right = 0.384118
+anchor_bottom = 0.400628
+text = "saddas"
+metadata/_edit_use_anchors_ = true
+
+[node name="GamePanel" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.425294
+anchor_right = 0.572353
+anchor_bottom = 0.0794979
+metadata/_edit_use_anchors_ = true
+
+[node name="BombTimeLabel" type="Label" parent="GamePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.998005, 1)
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="MenuPanel/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="item_selected" from="MenuPanel/ChooseMapButton" to="." method="_on_option_button_item_selected"]
+[connection signal="pressed" from="MenuPanel/BackButton" to="." method="_on_back_button_pressed"]

@@ -11,13 +11,23 @@ config_version=5
 [application]
 
 config/name="SeniorProject"
-run/main_scene="res://test_scene.tscn"
+run/main_scene="res://Scenes/main_menu.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="res://Audio/default_bus_layout.tres"
+
 [autoload]
 
-LocalMultiplayer="*res://local_multiplayer.tscn"
+LocalMultiplayer="*res://System/local_multiplayer.tscn"
+
+[display]
+
+window/size/viewport_width=1700
+window/size/viewport_height=956
+window/stretch/mode="canvas_items"
 
 [input]
 
