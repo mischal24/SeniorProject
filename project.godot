@@ -23,6 +23,7 @@ buses/default_bus_layout="res://Audio/default_bus_layout.tres"
 
 LocalMultiplayer="*res://System/local_multiplayer.tscn"
 GameData="*res://System/game_data.tscn"
+SFXPlayer="*res://System/sfx_player.tscn"
 
 [display]
 

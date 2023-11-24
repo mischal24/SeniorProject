@@ -7,7 +7,7 @@ extends Node
 @export var additive_bomb_speed : float = 1.05
 
 @export_category("Other")
-@export var maps : Array[PackedScene]
+@export var maps : Array[PackedScene ]
 
 @export var resolutions : Array[Vector2]
 var default_resolution : int = 0

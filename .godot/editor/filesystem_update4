@@ -12,3 +12,6 @@ res://Maps/main_tileset.tres
 res://Scripts/player.gd
 res://Maps/test_map.tscn
 res://Scripts/volume_slider.gd
+res://System/sfx_player.tscn
+res://System/sfx_player.gd
+res://Scripts/bomb.gd

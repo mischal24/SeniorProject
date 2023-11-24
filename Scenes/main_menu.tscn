@@ -97,30 +97,61 @@ offset_right = -82.0
 offset_bottom = -11.0
 metadata/_edit_use_anchors_ = true
 
+[node name="Label" type="Label" parent="OptionsPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0711765
+anchor_top = 0.322176
+anchor_right = 0.135294
+anchor_bottom = 0.349372
+text = "Master"
+metadata/_edit_use_anchors_ = true
+
 [node name="VolumeSlider-Master" type="HSlider" parent="OptionsPanel"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.107059
-anchor_top = 0.34728
+anchor_top = 0.328452
 anchor_right = 0.274118
-anchor_bottom = 0.364017
+anchor_bottom = 0.345189
 max_value = 1.0
 step = 0.001
 script = ExtResource("3_e40ws")
 bus_name = "Master"
 metadata/_edit_use_anchors_ = true
 
+[node name="Label2" type="Label" parent="OptionsPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0711765
+anchor_top = 0.344142
+anchor_right = 0.135294
+anchor_bottom = 0.371339
+text = "Music
+"
+metadata/_edit_use_anchors_ = true
+
 [node name="VolumeSlider-Music" type="HSlider" parent="OptionsPanel"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.107059
-anchor_top = 0.322176
+anchor_top = 0.351464
 anchor_right = 0.274118
-anchor_bottom = 0.338913
+anchor_bottom = 0.368201
 max_value = 1.0
 step = 0.001
 script = ExtResource("3_e40ws")
 bus_name = "Music"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label3" type="Label" parent="OptionsPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0711765
+anchor_top = 0.367155
+anchor_right = 0.135294
+anchor_bottom = 0.394351
+text = "SFX"
 metadata/_edit_use_anchors_ = true
 
 [node name="VolumeSlider-SFX" type="HSlider" parent="OptionsPanel"]
