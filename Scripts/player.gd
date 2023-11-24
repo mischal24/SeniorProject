@@ -19,6 +19,9 @@ var controller_id : int
 @onready var jump_gravity : float = ((-2.0 * jump_height) / (jump_time_till_peak * jump_time_till_peak)) * -1.0
 @onready var fall_gravity : float = ((-2.0 * jump_height) / (jump_time_till_fall * jump_time_till_fall)) * -1.0
 
+var flipped : bool = false
+var holding_bomb : bool = false
+
 ## Movement and Gravity ##
 func _process(_delta):
 	match current_input_method:
@@ -38,6 +41,20 @@ func _process(_delta):
 					Input.get_joy_axis(controller_id, JOY_AXIS_RIGHT_Y)
 				))
 
+	if velocity.x < 0 and flipped:
+		flip()
+	elif velocity.x > 0 and not flipped:
+		flip()
+
+	if LocalMultiplayer.player_with_bomb == self and holding_bomb:
+		$AnimationPlayer.play_animation(1)
+	else:
+		$AnimationPlayer.play_animation(0)
+
+func flip():
+	flipped = !flipped
+	$Sprite2D.flip_h = flipped 
+
 func jump():
 	velocity.y = jump_velocity
 
@@ -52,5 +69,6 @@ func throw_bomb(throw_rotation):
 	if LocalMultiplayer.player_with_bomb == self and throw_rotation != Vector2.ZERO:
 		var throw_position = global_position + (throw_rotation * 85)
 		LocalMultiplayer.spawn_bomb(throw_position, (throw_rotation * (GameData.initial_bomb_speed * 2)), false)
+		holding_bomb = false
 	else:
 		pass

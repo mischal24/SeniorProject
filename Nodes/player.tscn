@@ -1,10 +1,48 @@
-[gd_scene load_steps=4 format=3 uid="uid://7jdh8mynf31u"]
+[gd_scene load_steps=9 format=3 uid="uid://7jdh8mynf31u"]
 
-[ext_resource type="Texture2D" uid="uid://oucdusathm4r" path="res://icon.svg" id="1_fnx8q"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_nl4o3"]
+[ext_resource type="Texture2D" uid="uid://cka7uckja1fn6" path="res://Textures/Player_01.png" id="2_2fxua"]
+[ext_resource type="Texture2D" uid="uid://dkfb07dacw857" path="res://Textures/Player_02.png" id="3_khs1o"]
+[ext_resource type="Script" path="res://Scripts/player_animations.gd" id="4_jukqk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nbhqq"]
-size = Vector2(128, 128)
+size = Vector2(71.4286, 101.143)
+
+[sub_resource type="Animation" id="Animation_7ab86"]
+resource_name = "Idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_2fxua")]
+}
+
+[sub_resource type="Animation" id="Animation_6kaoc"]
+resource_name = "HoldingBomb"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_khs1o")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wa688"]
+_data = {
+"HoldingBomb": SubResource("Animation_6kaoc"),
+"Idle": SubResource("Animation_7ab86")
+}
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
@@ -15,9 +53,16 @@ jump_time_till_peak = 0.35
 jump_time_till_fall = 0.31
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 9.4)
 scale = Vector2(0.7, 0.7)
 shape = SubResource("RectangleShape2D_nbhqq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.7, 0.7)
-texture = ExtResource("1_fnx8q")
+scale = Vector2(0.075, 0.075)
+texture = ExtResource("2_2fxua")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_wa688")
+}
+script = ExtResource("4_jukqk")

@@ -15,3 +15,5 @@ res://Scripts/volume_slider.gd
 res://System/sfx_player.tscn
 res://System/sfx_player.gd
 res://Scripts/bomb.gd
+res://Nodes/player.tscn
+res://Scripts/player_animations.gd

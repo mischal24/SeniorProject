@@ -16,6 +16,7 @@ func _physics_process(delta):
 func _on_area_2d_body_entered(body):
 	if body is Player_Class:
 		LocalMultiplayer.player_with_bomb = body
+		body.holding_bomb = true
 		queue_free()
 	else:
 		pass

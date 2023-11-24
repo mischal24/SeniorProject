@@ -17,6 +17,7 @@ var game_started : bool = false
 
 ## Game ##
 func _input(event):
+	if game_started : return
 	if Input.is_action_just_released("KeyAdd"):
 		if players_joined.has("key"):
 			return
