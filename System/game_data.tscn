@@ -5,5 +5,6 @@
 
 [node name="GameData" type="Node2D"]
 script = ExtResource("1_xpfco")
+additive_bomb_speed = 1.02
 maps = Array[PackedScene]([ExtResource("2_rexfv")])
 resolutions = Array[Vector2]([Vector2(1700, 956), Vector2(1920, 1080)])
