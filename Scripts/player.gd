@@ -29,7 +29,7 @@ func _process(_delta):
 			velocity.x = lerp(velocity.x, (Input.get_action_strength("right") - Input.get_action_strength("left")) * speed, 0.1)
 			if Input.is_action_pressed("jump") and is_on_floor():
 				jump()
-			if Input.is_action_just_pressed("throw"):
+			if Input.is_action_just_pressed("throw") and get_global_mouse_position().distance_to(position) > 100:
 				throw_bomb(position.direction_to(get_global_mouse_position()))
 		input_methods.controller:
 			velocity.x = lerp(velocity.x, Input.get_joy_axis(controller_id, JOY_AXIS_LEFT_X) * speed, 0.1)
@@ -47,9 +47,9 @@ func _process(_delta):
 		flip()
 
 	if LocalMultiplayer.player_with_bomb == self and holding_bomb:
-		$AnimationPlayer.play_animation(1)
+		$AnimationPlayer.play("HoldingBomb")
 	else:
-		$AnimationPlayer.play_animation(0)
+		$AnimationPlayer.play("Idle")
 
 func flip():
 	flipped = !flipped
@@ -66,9 +66,8 @@ func _physics_process(delta):
 	move_and_slide()
 
 func throw_bomb(throw_rotation):
-	if LocalMultiplayer.player_with_bomb == self and throw_rotation != Vector2.ZERO:
-		var throw_position = global_position + (throw_rotation * 85)
-		LocalMultiplayer.spawn_bomb(throw_position, (throw_rotation * (GameData.initial_bomb_speed * 2)), false)
+	if LocalMultiplayer.player_with_bomb == self:
+		LocalMultiplayer.spawn_bomb(position, (throw_rotation * (GameData.initial_bomb_speed * 2)), false)
 		holding_bomb = false
 	else:
-		pass
+		return

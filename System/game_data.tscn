@@ -1,10 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://cqefxayl102d"]
+[gd_scene load_steps=5 format=3 uid="uid://bp0v123ldkxuc"]
 
 [ext_resource type="Script" path="res://System/game_data.gd" id="1_xpfco"]
-[ext_resource type="PackedScene" uid="uid://bc2ksprqcs01u" path="res://Maps/test_map.tscn" id="2_rexfv"]
+[ext_resource type="Resource" uid="uid://dvcokre8fyyeq" path="res://Maps/map_01/map_01_info.tres" id="2_w8rl7"]
+[ext_resource type="AudioStream" uid="uid://1n2acn2cgi28" path="res://Audio/bomb_bounce.wav" id="3_sshur"]
+[ext_resource type="AudioStream" uid="uid://c05fofgwbumxo" path="res://Audio/throw.wav" id="4_pkl21"]
 
 [node name="GameData" type="Node2D"]
 script = ExtResource("1_xpfco")
-additive_bomb_speed = 1.02
-maps = Array[PackedScene]([ExtResource("2_rexfv")])
+min_player_count = 1
+initial_bomb_speed = 500.0
+max_bomb_speed = 1200.0
+maps = Array[Resource("res://Maps/Map.gd")]([ExtResource("2_w8rl7")])
 resolutions = Array[Vector2]([Vector2(1700, 956), Vector2(1920, 1080)])
+sound_effects = {
+"Bomb_Bounce": ExtResource("3_sshur"),
+"Throw": ExtResource("4_pkl21")
+}

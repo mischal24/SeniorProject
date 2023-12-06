@@ -1,7 +1,15 @@
-res://Scenes/main_menu.tscn
-res://Maps/main_tileset.tres
-res://Scenes/level_select_menu.tscn
-res://Maps/test_map.tscn
 res://System/game_data.tscn
+res://Maps/main_tileset.tres
+res://Maps/Test Map/test_map.tres
+res://Scenes/main_menu.tscn
+res://Scenes/level_select_menu.tscn
+res://Maps/Test Map/test_map.tscn
 res://Nodes/player.tscn
 res://Nodes/bomb.tscn
+res://System/local_multiplayer.tscn
+res://Maps/map_01/map_01_scene.tscn
+res://Maps/map_01/map_01_info.tres
+res://Scripts/player.gd
+res://System/local_multiplayer.gd
+res://Scripts/bomb.gd
+res://Scripts/level_select_menu.gd

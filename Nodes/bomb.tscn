@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bckn8i11kwnxe"]
+[gd_scene load_steps=6 format=3 uid="uid://bckn8i11kwnxe"]
 
 [ext_resource type="Script" path="res://Scripts/bomb.gd" id="1_887kf"]
 [ext_resource type="Texture2D" uid="uid://coqdl8x40vnbf" path="res://Textures/Bomb.png" id="2_wmc11"]
+[ext_resource type="Script" path="res://Scripts/sfx_player.gd" id="3_kuyfn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fhawx"]
 
@@ -11,7 +12,6 @@ radius = 14.0357
 [node name="Bomb" type="CharacterBody2D"]
 scale = Vector2(2, 2)
 collision_layer = 2
-collision_mask = 3
 motion_mode = 1
 script = ExtResource("1_887kf")
 
@@ -29,5 +29,8 @@ collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_clef7")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+script = ExtResource("3_kuyfn")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Map" load_steps=3 format=3 uid="uid://dvcokre8fyyeq"]
+
+[ext_resource type="PackedScene" uid="uid://bc2ksprqcs01u" path="res://Maps/map_01/map_01_scene.tscn" id="1_22wvd"]
+[ext_resource type="Script" path="res://Maps/Map.gd" id="2_1335o"]
+
+[resource]
+script = ExtResource("2_1335o")
+map_name = "Map 01"
+map_tscn = ExtResource("1_22wvd")
