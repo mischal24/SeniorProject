@@ -1,3 +1,10 @@
+Sprite2D
+AnimationTree
+CollisionShape2D
+CharacterBody2D
+RigidBody2D
+Node2D
+PinJoint2D
 AudioStreamPlayer
 AnimationPlayer
 Label

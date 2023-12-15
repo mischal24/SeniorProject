@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bckn8i11kwnxe"]
 
 [ext_resource type="Script" path="res://Scripts/bomb.gd" id="1_887kf"]
-[ext_resource type="Texture2D" uid="uid://coqdl8x40vnbf" path="res://Textures/Bomb.png" id="2_wmc11"]
+[ext_resource type="Texture2D" uid="uid://coqdl8x40vnbf" path="res://Textures/Placeholder/Bomb.png" id="2_hijbj"]
 [ext_resource type="Script" path="res://Scripts/sfx_player.gd" id="3_kuyfn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fhawx"]
@@ -21,7 +21,7 @@ shape = SubResource("CircleShape2D_fhawx")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -1.5)
 scale = Vector2(0.0233333, 0.0233333)
-texture = ExtResource("2_wmc11")
+texture = ExtResource("2_hijbj")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 3

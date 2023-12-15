@@ -20,13 +20,14 @@ var controller_id : int
 @onready var fall_gravity : float = ((-2.0 * jump_height) / (jump_time_till_fall * jump_time_till_fall)) * -1.0
 
 var flipped : bool = false
+var currently_flipping : bool = false
 var holding_bomb : bool = false
 
 ## Movement and Gravity ##
 func _process(_delta):
 	match current_input_method:
 		input_methods.keyboard:
-			velocity.x = lerp(velocity.x, (Input.get_action_strength("right") - Input.get_action_strength("left")) * speed, 0.1)
+			velocity.x = lerp(velocity.x, (Input.get_action_raw_strength("right") - Input.get_action_raw_strength("left")) * speed, 0.1)
 			if Input.is_action_pressed("jump") and is_on_floor():
 				jump()
 			if Input.is_action_just_pressed("throw") and get_global_mouse_position().distance_to(position) > 100:
@@ -46,14 +47,9 @@ func _process(_delta):
 	elif velocity.x > 0 and not flipped:
 		flip()
 
-	if LocalMultiplayer.player_with_bomb == self and holding_bomb:
-		$AnimationPlayer.play("HoldingBomb")
-	else:
-		$AnimationPlayer.play("Idle")
-
 func flip():
 	flipped = !flipped
-	$Sprite2D.flip_h = flipped 
+	scale.x = -scale.x
 
 func jump():
 	velocity.y = jump_velocity
