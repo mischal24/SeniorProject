@@ -15,6 +15,7 @@ func _physics_process(delta):
 		else:
 			pass
 		$AudioStreamPlayer.play_sound("Bomb_Bounce")
+		$AnimationPlayer.play("Hit")
 
 ## Collide ##
 func _on_area_2d_body_entered(body):

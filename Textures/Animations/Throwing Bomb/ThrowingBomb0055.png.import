@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bog1qcnpv7c4w"
-path="res://.godot/imported/templategrid_albedo (1).png-42121c4d73face482e65198b5fe85d6b.ctex"
+uid="uid://1p0grqlnn471"
+path="res://.godot/imported/ThrowingBomb0055.png-12a662e6811f204f1b2868d649646ab2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/templategrid_albedo (1).png"
-dest_files=["res://.godot/imported/templategrid_albedo (1).png-42121c4d73face482e65198b5fe85d6b.ctex"]
+source_file="res://Textures/Animations/Throwing Bomb/ThrowingBomb0055.png"
+dest_files=["res://.godot/imported/ThrowingBomb0055.png-12a662e6811f204f1b2868d649646ab2.ctex"]
 
 [params]
 

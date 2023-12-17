@@ -1,9 +1,9 @@
-res://Nodes/player.tscn
-res://Maps/main_tileset.tres
 res://Scenes/main_menu.tscn
+res://Maps/main_tileset.tres
 res://Scenes/level_select_menu.tscn
 res://Maps/map_01/map_01_scene.tscn
 res://System/game_data.tscn
+res://Nodes/player.tscn
 res://Nodes/bomb.tscn
 res://System/local_multiplayer.tscn
 res://Scripts/player.gd

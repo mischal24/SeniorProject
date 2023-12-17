@@ -20,7 +20,6 @@ var controller_id : int
 @onready var fall_gravity : float = ((-2.0 * jump_height) / (jump_time_till_fall * jump_time_till_fall)) * -1.0
 
 var flipped : bool = false
-var currently_flipping : bool = false
 var holding_bomb : bool = false
 
 ## Movement and Gravity ##
@@ -47,6 +46,20 @@ func _process(_delta):
 	elif velocity.x > 0 and not flipped:
 		flip()
 
+	if abs(velocity.x) > 300.0:
+		$AnimationTree["parameters/conditions/running"] = true
+		$AnimationTree["parameters/conditions/idling"] = false
+	else:
+		$AnimationTree["parameters/conditions/idling"] = true
+		$AnimationTree["parameters/conditions/running"] = false
+
+	if holding_bomb:
+		$HLoco/Follow/Hand.show()
+		$AnimationPlayerHand.play("Holding")
+
+func _ready():
+	$AnimationTree.active = true
+
 func flip():
 	flipped = !flipped
 	scale.x = -scale.x
@@ -63,7 +76,11 @@ func _physics_process(delta):
 
 func throw_bomb(throw_rotation):
 	if LocalMultiplayer.player_with_bomb == self:
-		LocalMultiplayer.spawn_bomb(position, (throw_rotation * (GameData.initial_bomb_speed * 2)), false)
 		holding_bomb = false
+		$AnimationPlayerHand.play("Throwing")
+		await get_tree().create_timer(0.4).timeout
+		LocalMultiplayer.spawn_bomb(position, (round(throw_rotation) * (GameData.initial_bomb_speed * 2)), false)
+		await $AnimationPlayerHand.animation_finished
+		$HLoco/Follow/Hand.hide()
 	else:
 		return
