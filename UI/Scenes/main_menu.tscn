@@ -1,0 +1,350 @@
+[gd_scene load_steps=11 format=3 uid="uid://dkkbl7hunamkv"]
+
+[ext_resource type="Theme" uid="uid://c00romr5aeaau" path="res://UI/Resources/Themes/main_menu_theme.tres" id="1_ohg5g"]
+[ext_resource type="Shader" path="res://UI/Resources/Shaders/pattern.gdshader" id="1_vegx7"]
+[ext_resource type="Texture2D" uid="uid://cqddwrmjgs2m1" path="res://UI/Textures/pattern.png" id="2_nwpss"]
+[ext_resource type="Script" path="res://UI/Scripts/main_menu.gd" id="2_pw611"]
+[ext_resource type="Texture2D" uid="uid://bpnxrt0gicucu" path="res://UI/Textures/bombastic.png" id="3_a5g7k"]
+[ext_resource type="Texture2D" uid="uid://ke2x6fae6ufu" path="res://UI/Textures/Popup.png" id="6_73ul2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_imedv"]
+shader = ExtResource("1_vegx7")
+shader_parameter/direction = Vector2(1, -1)
+shader_parameter/speed_scale = 0.1
+
+[sub_resource type="Animation" id="Animation_ah26d"]
+resource_name = "FromTitle"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Play:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [Vector2(1500, 0), Vector2(925, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Settings:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.6),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [Vector2(1500, 320), Vector2(857, 320)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Promo:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2, 0.7),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [Vector2(1500, 456), Vector2(817, 456)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Quit:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.3, 0.8),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [Vector2(1500, 591), Vector2(777, 591)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Logo:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(-3, 1),
+"update": 0,
+"values": [Vector2(-690, 238), Vector2(69, 238)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Fade:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Fade:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_kby77"]
+resource_name = "ToOther"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-4, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Fade:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t5385"]
+_data = {
+"FromTitle": SubResource("Animation_ah26d"),
+"ToOther": SubResource("Animation_kby77")
+}
+
+[node name="Main Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ohg5g")
+script = ExtResource("2_pw611")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.45098, 0.364706, 0.796078, 1)
+
+[node name="Pattern" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_imedv")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_nwpss")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Logo" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0539063
+anchor_top = 0.330556
+anchor_right = 0.582813
+anchor_bottom = 0.569445
+offset_left = -759.0
+offset_top = -0.000320435
+offset_right = -759.0
+offset_bottom = -0.000335693
+texture = ExtResource("3_a5g7k")
+expand_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Play" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1500.0
+offset_right = 1807.0
+offset_bottom = 312.0
+theme_override_font_sizes/font_size = 64
+text = "PLAY"
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="Settings" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1500.0
+offset_top = 320.0
+offset_right = 1807.0
+offset_bottom = 449.0
+text = "SETTINGS"
+
+[node name="Promo" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1500.0
+offset_top = 456.0
+offset_right = 1807.0
+offset_bottom = 585.0
+text = "ITCH.IO"
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1500.0
+offset_top = 591.0
+offset_right = 1807.0
+offset_bottom = 720.0
+text = "QUIT"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_t5385")
+}
+
+[node name="PromoPopup" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="Panel" parent="PromoPopup"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="TextureRect" parent="PromoPopup"]
+layout_mode = 0
+anchor_left = 0.192188
+anchor_top = 0.204167
+anchor_right = 0.799566
+anchor_bottom = 0.797222
+offset_right = 18.8962
+offset_bottom = 6.10352e-05
+texture = ExtResource("6_73ul2")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="PromoPopup"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.299219
+anchor_top = 0.329167
+anchor_right = 0.714844
+anchor_bottom = 0.608333
+text = "Open shameless self promo?"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Open" type="Button" parent="PromoPopup"]
+layout_mode = 0
+offset_left = 236.0
+offset_top = 397.0
+offset_right = 410.0
+offset_bottom = 478.0
+text = "Yes"
+
+[node name="No" type="Button" parent="PromoPopup"]
+layout_mode = 0
+offset_left = 417.0
+offset_top = 397.0
+offset_right = 591.0
+offset_bottom = 478.0
+text = "No"
+
+[node name="QuitPopup" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="Panel" parent="QuitPopup"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="TextureRect" parent="QuitPopup"]
+layout_mode = 0
+anchor_left = 0.192188
+anchor_top = 0.204167
+anchor_right = 0.799566
+anchor_bottom = 0.797222
+offset_right = 18.8962
+offset_bottom = 6.10352e-05
+texture = ExtResource("6_73ul2")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="QuitPopup"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.299219
+anchor_top = 0.329167
+anchor_right = 0.714844
+anchor_bottom = 0.608333
+text = "Are you sure you want to quit?"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Yes" type="Button" parent="QuitPopup"]
+layout_mode = 0
+offset_left = 236.0
+offset_top = 397.0
+offset_right = 410.0
+offset_bottom = 478.0
+text = "Yes"
+
+[node name="No" type="Button" parent="QuitPopup"]
+layout_mode = 0
+offset_left = 417.0
+offset_top = 397.0
+offset_right = 591.0
+offset_bottom = 478.0
+text = "No"
+
+[node name="Fade" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0.5)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Promo" to="." method="_on_promo_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="PromoPopup/Open" to="." method="_on_open_pressed"]
+[connection signal="pressed" from="PromoPopup/No" to="." method="_on_no_pressed"]
+[connection signal="pressed" from="QuitPopup/Yes" to="." method="_on_yes_pressed"]
+[connection signal="pressed" from="QuitPopup/No" to="." method="_on_no_pressed"]

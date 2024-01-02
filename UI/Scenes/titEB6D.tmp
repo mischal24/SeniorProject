@@ -1,0 +1,72 @@
+[gd_scene load_steps=6 format=3 uid="uid://dxanhvkt65efw"]
+
+[ext_resource type="Texture2D" uid="uid://cqddwrmjgs2m1" path="res://UI/Textures/pattern.png" id="1_1x3i5"]
+[ext_resource type="Script" path="res://UI/Scenes/title.gd" id="1_4a0cy"]
+[ext_resource type="Texture2D" uid="uid://bqtvsqd4hksyc" path="res://UI/Textures/Panel.png" id="2_6bgdi"]
+[ext_resource type="Shader" path="res://UI/Resources/Shaders/pattern.gdshader" id="2_r3yfv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rjnp3"]
+shader = ExtResource("2_r3yfv")
+shader_parameter/direction = Vector2(1, -1)
+shader_parameter/speed_scale = 0.1
+
+[node name="Title" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4a0cy")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.45098, 0.364706, 0.796078, 1)
+
+[node name="Pattern" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_rjnp3")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_1x3i5")
+stretch_mode = 1
+
+[node name="Logo & Panels" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_6bgdi")
+expand_mode = 1
+
+[node name="Press Any Button!" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.390625
+anchor_top = 0.643056
+anchor_right = 0.6125
+anchor_bottom = 0.755556
+text = "Press Any Button!"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Info" type="Label" parent="."]
+layout_mode = 0
+anchor_left = 0.0164062
+anchor_top = 0.898611
+anchor_right = 0.110937
+anchor_bottom = 0.966667
+text = "Mischa Larkins
+2024"
+metadata/_edit_use_anchors_ = true

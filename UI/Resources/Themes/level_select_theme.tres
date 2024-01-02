@@ -1,0 +1,18 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://731hjin1h8kg"]
+
+[ext_resource type="FontFile" uid="uid://c6fi4uamk7pq6" path="res://UI/Resources/Font/IstokWeb-Bold.ttf" id="1_ppfx2"]
+[ext_resource type="StyleBox" uid="uid://cnc00t66eo0ub" path="res://UI/Resources/Styleboxes/level_select_panel.tres" id="1_upedt"]
+[ext_resource type="FontFile" uid="uid://d2jcbevft03tk" path="res://UI/Resources/Font/IstokWeb-BoldItalic.ttf" id="3_xliam"]
+[ext_resource type="FontFile" uid="uid://b60wu7hyyhpib" path="res://UI/Resources/Font/IstokWeb-Italic.ttf" id="4_vvq7y"]
+[ext_resource type="FontFile" uid="uid://doe63ctjmruf7" path="res://UI/Resources/Font/IstokWeb-Regular.ttf" id="5_ecevj"]
+
+[resource]
+HBoxContainer/constants/separation = 0
+Label/font_sizes/font_size = 39
+Label/fonts/font = ExtResource("1_ppfx2")
+Panel/styles/panel = ExtResource("1_upedt")
+RichTextLabel/font_sizes/bold_font_size = 25
+RichTextLabel/fonts/bold_font = ExtResource("1_ppfx2")
+RichTextLabel/fonts/bold_italics_font = ExtResource("3_xliam")
+RichTextLabel/fonts/italics_font = ExtResource("4_vvq7y")
+RichTextLabel/fonts/normal_font = ExtResource("5_ecevj")

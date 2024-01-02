@@ -1,0 +1,15 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://b5iixlfxujc73"]
+
+[ext_resource type="FontFile" uid="uid://doe63ctjmruf7" path="res://UI/Resources/Font/IstokWeb-Regular.ttf" id="1_ywshx"]
+[ext_resource type="FontFile" uid="uid://c6fi4uamk7pq6" path="res://UI/Resources/Font/IstokWeb-Bold.ttf" id="2_qxd3u"]
+[ext_resource type="FontFile" uid="uid://d2jcbevft03tk" path="res://UI/Resources/Font/IstokWeb-BoldItalic.ttf" id="3_om8s5"]
+[ext_resource type="FontFile" uid="uid://b60wu7hyyhpib" path="res://UI/Resources/Font/IstokWeb-Italic.ttf" id="4_ubyo0"]
+
+[resource]
+Label/colors/font_color = Color(0.109804, 0.109804, 0.109804, 1)
+Label/fonts/font = ExtResource("2_qxd3u")
+RichTextLabel/font_sizes/bold_font_size = 25
+RichTextLabel/fonts/bold_font = ExtResource("2_qxd3u")
+RichTextLabel/fonts/bold_italics_font = ExtResource("3_om8s5")
+RichTextLabel/fonts/italics_font = ExtResource("4_ubyo0")
+RichTextLabel/fonts/normal_font = ExtResource("1_ywshx")

@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://be2akd7mikra1"]
+
+[ext_resource type="Script" path="res://Game/Scripts/game_data.gd" id="1_4sykl"]
+[ext_resource type="Texture2D" uid="uid://tlp87bjmaajl" path="res://Purple_flower_(4764445139)-1650662872.jpg" id="2_6gfg0"]
+[ext_resource type="PackedScene" uid="uid://c1s7f801l6lx1" path="res://Game/Nodes/Scenes/test_map.tscn" id="2_612ao"]
+[ext_resource type="Texture2D" uid="uid://cl3swu5sd11sq" path="res://foster-lake-2709120121.jpg" id="3_fcxdn"]
+
+[node name="Game Data" type="Node"]
+script = ExtResource("1_4sykl")
+jump_height = 100.0
+jump_time_till_peak = 0.5
+jump_time_till_fall = 0.5
+initial_bomb_speed = 400.0
+max_bomb_speed = 700.0
+additive_bomb_speed = 1.4
+bomb_collision_delay = 0.9
+maps = Array[PackedScene]([ExtResource("2_612ao")])
+maps_images = Array[Texture]([ExtResource("2_6gfg0"), ExtResource("3_fcxdn")])

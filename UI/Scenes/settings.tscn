@@ -1,0 +1,228 @@
+[gd_scene load_steps=6 format=3 uid="uid://ohs1vaygwha7"]
+
+[ext_resource type="Theme" uid="uid://bo6s15lpp5ikw" path="res://UI/Resources/Themes/settings_theme.tres" id="1_dkqcw"]
+[ext_resource type="Script" path="res://UI/Scripts/settings.gd" id="2_d4qq2"]
+[ext_resource type="Script" path="res://UI/Scripts/volume_slider.gd" id="3_2d1pm"]
+
+[sub_resource type="Animation" id="Animation_n82ex"]
+resource_name = "ToMenu"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Items:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Info:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Title:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Back:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rqnnv"]
+_data = {
+"ToMenu": SubResource("Animation_n82ex")
+}
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_dkqcw")
+script = ExtResource("2_d4qq2")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Items" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchor_left = 0.264062
+anchor_top = 0.258333
+anchor_right = 0.792188
+anchor_bottom = 0.813889
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Items"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.254438
+anchor_top = 0.085
+anchor_right = 0.85355
+anchor_bottom = 0.96
+metadata/_edit_use_anchors_ = true
+
+[node name="ResolutionButton" type="OptionButton" parent="Items/VBoxContainer"]
+layout_mode = 2
+
+[node name="DisplayButton" type="OptionButton" parent="Items/VBoxContainer"]
+layout_mode = 2
+item_count = 3
+selected = 0
+popup/item_0/text = "Windowed"
+popup/item_0/id = 0
+popup/item_1/text = "Borderless Window"
+popup/item_1/id = 1
+popup/item_2/text = "Fullscreen"
+popup/item_2/id = 2
+
+[node name="MasterSlider" type="HSlider" parent="Items/VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+script = ExtResource("3_2d1pm")
+bus_name = "Master"
+
+[node name="MusicSlider" type="HSlider" parent="Items/VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+script = ExtResource("3_2d1pm")
+bus_name = "Music"
+
+[node name="SfxSlider" type="HSlider" parent="Items/VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+script = ExtResource("3_2d1pm")
+bus_name = "Sfx"
+
+[node name="Label" type="Label" parent="Items"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.00295858
+anchor_top = 0.0775
+anchor_right = 0.180473
+anchor_bottom = 0.1675
+text = "Resolution"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="Items"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.00295858
+anchor_top = 0.275
+anchor_right = 0.121302
+anchor_bottom = 0.365
+text = "Display"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label3" type="Label" parent="Items"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.00295858
+anchor_top = 0.47
+anchor_right = 0.118343
+anchor_bottom = 0.56
+text = "Master"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label4" type="Label" parent="Items"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.00295858
+anchor_top = 0.68
+anchor_right = 0.100592
+anchor_bottom = 0.77
+text = "Music"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label5" type="Label" parent="Items"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.00295858
+anchor_top = 0.88
+anchor_right = 0.0967086
+anchor_bottom = 0.97
+text = "SFX"
+metadata/_edit_use_anchors_ = true
+
+[node name="Info" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 23.0
+offset_top = 676.0
+offset_right = 189.0
+offset_bottom = 705.0
+theme_override_colors/font_color = Color(0.109804, 0.109804, 0.109804, 1)
+theme_override_font_sizes/font_size = 16
+text = "Senior Project 2024"
+vertical_alignment = 2
+
+[node name="Title" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.241406
+anchor_bottom = 0.184722
+theme_override_font_sizes/font_size = 58
+text = "Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Back" type="RichTextLabel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 820.0
+offset_top = 666.0
+offset_right = 1245.0
+offset_bottom = 705.0
+bbcode_enabled = true
+text = "[center] [b] Press [color=735DCB]‘ESC’[/color] or [color=735DCB]‘🅨’[/color] to go back [/b] [/center]"
+scroll_active = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_rqnnv")
+}
+
+[connection signal="item_selected" from="Items/VBoxContainer/ResolutionButton" to="." method="_on_resolution_button_item_selected"]
+[connection signal="item_selected" from="Items/VBoxContainer/DisplayButton" to="." method="_on_display_button_item_selected"]
