@@ -1,18 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://be2akd7mikra1"]
+[gd_scene load_steps=8 format=3 uid="uid://be2akd7mikra1"]
 
 [ext_resource type="Script" path="res://Game/Scripts/game_data.gd" id="1_4sykl"]
-[ext_resource type="Texture2D" uid="uid://tlp87bjmaajl" path="res://Purple_flower_(4764445139)-1650662872.jpg" id="2_6gfg0"]
-[ext_resource type="PackedScene" uid="uid://c1s7f801l6lx1" path="res://Game/Nodes/Scenes/test_map.tscn" id="2_612ao"]
-[ext_resource type="Texture2D" uid="uid://cl3swu5sd11sq" path="res://foster-lake-2709120121.jpg" id="3_fcxdn"]
+[ext_resource type="PackedScene" uid="uid://ccknxnogo4bhh" path="res://Game/Nodes/Scenes/Map1.tscn" id="3_306n6"]
+[ext_resource type="PackedScene" uid="uid://dfepnutlhivlm" path="res://Game/Nodes/Scenes/Map2.tscn" id="4_8akwq"]
+[ext_resource type="PackedScene" uid="uid://ct0u7cu44vypy" path="res://Game/Nodes/Scenes/Map3.tscn" id="5_pmuvu"]
+[ext_resource type="Texture2D" uid="uid://ites5t88hpa0" path="res://Game/Textures/Screenshot 2024-01-18 070858.png" id="5_yyme1"]
+[ext_resource type="Texture2D" uid="uid://c8roqdjs7fkxd" path="res://Game/Textures/Screenshot 2024-01-18 070919.png" id="6_ostx1"]
+[ext_resource type="Texture2D" uid="uid://dj8or4mjd6e4o" path="res://Game/Textures/Screenshot 2024-01-18 070932.png" id="7_w8ajw"]
 
 [node name="Game Data" type="Node"]
 script = ExtResource("1_4sykl")
+min_player_count = 1
 jump_height = 100.0
 jump_time_till_peak = 0.5
 jump_time_till_fall = 0.5
 initial_bomb_speed = 400.0
 max_bomb_speed = 700.0
 additive_bomb_speed = 1.4
-bomb_collision_delay = 0.9
-maps = Array[PackedScene]([ExtResource("2_612ao")])
-maps_images = Array[Texture]([ExtResource("2_6gfg0"), ExtResource("3_fcxdn")])
+bomb_collision_delay = 0.6
+maps = Array[PackedScene]([ExtResource("3_306n6"), ExtResource("4_8akwq"), ExtResource("5_pmuvu")])
+maps_images = Array[Texture]([ExtResource("5_yyme1"), ExtResource("6_ostx1"), ExtResource("7_w8ajw")])

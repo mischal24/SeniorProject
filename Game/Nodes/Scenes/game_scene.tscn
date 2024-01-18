@@ -41,3 +41,9 @@ shape = SubResource("WorldBoundaryShape2D_okron")
 visible = false
 
 [node name="Level Select" parent="CanvasLayer" instance=ExtResource("2_ytplu")]
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+rotation = -0.729644
+energy = 0.75
+shadow_enabled = true
+shadow_filter_smooth = 0.5

@@ -28,11 +28,13 @@ func _on_next_pressed():
 	GameData.selected_map += 1
 	if GameData.selected_map > GameData.maps.size()-1:
 		GameData.selected_map = 0
+	$Next.release_focus()
 
 func _on_prev_pressed():
 	GameData.selected_map -= 1
 	if GameData.selected_map < 0:
 		GameData.selected_map = GameData.maps.size()-1
+	$Prev.release_focus()
 
 func hide_scene():
 	$AnimationPlayer.play("hide")

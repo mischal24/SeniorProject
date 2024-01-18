@@ -15,12 +15,15 @@ func grab_bomb(item):
 	item.get_node("Area2D/CollisionShape2D").set_deferred("disabled", true)
 	item.call_deferred("reparent", self)
 	GameData.current_bomb_parent = self
+	$AnimationPlayer.play("Hold")
 
 func throw_bomb(direction):
 	var item
 	if has_node("Bomb"):
 		item = get_node("Bomb")
 	if item != null:
+		$AnimationPlayer.play("Thrown")
+
 		item.call_deferred("reparent", get_tree().current_scene)
 
 		item.velocity = (direction * (GameData.initial_bomb_speed * 2))

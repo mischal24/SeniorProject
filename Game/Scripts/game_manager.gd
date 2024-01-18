@@ -51,7 +51,7 @@ func start_game():
 		
 		if is_instance_valid(added_player):
 			added_player.current_method = str_to_var(i)
-			added_player.global_position = GameData.center
+			added_player.global_position = GameData.center + Vector2(0, 200)
 
 			scene.add_child(added_player)
 		else:

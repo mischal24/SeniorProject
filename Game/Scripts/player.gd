@@ -43,6 +43,28 @@ func _physics_process(delta):
 	move_and_slide()
 
 	$Hand/Sprite2D.global_position = lerp($Hand/Sprite2D.global_position, $HandPos.global_position, 0.1)
+	
+	match current_method:
+		-1:
+			var c = Color("735DCB")
+			modulate = c
+			$Hand/Sprite2D.modulate = c
+			$PointLight2D.color = c
+		0:
+			var c = Color("FF6F9A")
+			modulate = c
+			$Hand/Sprite2D.modulate = c
+			$PointLight2D.color = c
+		1:
+			var c = Color("7CBA7E")
+			modulate = c
+			$Hand/Sprite2D.modulate = c
+			$PointLight2D.color = c
+		2:
+			var c = Color("F8DF5C")
+			modulate = c
+			$Hand/Sprite2D.modulate = c
+			$PointLight2D.color = c
 #endregion
 
 #region Custom Functions
@@ -58,4 +80,9 @@ func move(direction):
 func flip():
 	is_flipped = !is_flipped
 	scale.x = -scale.x
+	$Hand/Sprite2D.flip_h = !$Hand/Sprite2D.flip_h
+	if has_node("Hand/Bomb"):
+		$Hand/Bomb/Sprite2D.flip_h = !$Hand/Bomb/Sprite2D.flip_h
+	else:
+		pass
 #endregion
