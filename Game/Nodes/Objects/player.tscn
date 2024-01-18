@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cxekg5x42ai1a" path="res://Game/Textures/Glow.png" id="6_p113r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m4v1l"]
-size = Vector2(84, 90)
+size = Vector2(84, 100)
 
 [sub_resource type="Animation" id="Animation_j3qk0"]
 resource_name = "Hold"
@@ -93,6 +93,7 @@ angular_limit_lower = -0.785398
 angular_limit_upper = 0.785398
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 20)
 shape = SubResource("RectangleShape2D_m4v1l")
 
 [node name="HandPos" type="Marker2D" parent="."]

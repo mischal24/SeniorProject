@@ -44,6 +44,6 @@ visible = false
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 rotation = -0.729644
-energy = 0.75
+energy = 0.25
 shadow_enabled = true
 shadow_filter_smooth = 0.5

@@ -3,10 +3,10 @@
 [ext_resource type="Script" path="res://Game/Scripts/game_data.gd" id="1_4sykl"]
 [ext_resource type="PackedScene" uid="uid://ccknxnogo4bhh" path="res://Game/Nodes/Scenes/Map1.tscn" id="3_306n6"]
 [ext_resource type="PackedScene" uid="uid://dfepnutlhivlm" path="res://Game/Nodes/Scenes/Map2.tscn" id="4_8akwq"]
+[ext_resource type="Texture2D" uid="uid://efc38hd3hh4o" path="res://Game/Textures/Screenshot 2024-01-18 112831.png" id="5_m6wx0"]
 [ext_resource type="PackedScene" uid="uid://ct0u7cu44vypy" path="res://Game/Nodes/Scenes/Map3.tscn" id="5_pmuvu"]
-[ext_resource type="Texture2D" uid="uid://ites5t88hpa0" path="res://Game/Textures/Screenshot 2024-01-18 070858.png" id="5_yyme1"]
-[ext_resource type="Texture2D" uid="uid://c8roqdjs7fkxd" path="res://Game/Textures/Screenshot 2024-01-18 070919.png" id="6_ostx1"]
-[ext_resource type="Texture2D" uid="uid://dj8or4mjd6e4o" path="res://Game/Textures/Screenshot 2024-01-18 070932.png" id="7_w8ajw"]
+[ext_resource type="Texture2D" uid="uid://b0nuyxapofmgr" path="res://Game/Textures/Screenshot 2024-01-18 112855.png" id="6_fg1mf"]
+[ext_resource type="Texture2D" uid="uid://dovy27lbxsupb" path="res://Game/Textures/Screenshot 2024-01-18 112754.png" id="7_of8lc"]
 
 [node name="Game Data" type="Node"]
 script = ExtResource("1_4sykl")
@@ -19,4 +19,4 @@ max_bomb_speed = 700.0
 additive_bomb_speed = 1.4
 bomb_collision_delay = 0.6
 maps = Array[PackedScene]([ExtResource("3_306n6"), ExtResource("4_8akwq"), ExtResource("5_pmuvu")])
-maps_images = Array[Texture]([ExtResource("5_yyme1"), ExtResource("6_ostx1"), ExtResource("7_w8ajw")])
+maps_images = Array[Texture]([ExtResource("5_m6wx0"), ExtResource("6_fg1mf"), ExtResource("7_of8lc")])
