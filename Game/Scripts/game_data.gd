@@ -36,6 +36,7 @@ var player_speed : float = 300.0
 @export_category("Bomb")
 
 @onready var bomb_scene : PackedScene = preload("res://Game/Nodes/Objects/bomb.tscn")
+@onready var explosion_scene : PackedScene = preload("res://Game/Nodes/Objects/explosion.tscn")
 @export var initial_bomb_speed : float
 @export var max_bomb_speed : float
 @export var additive_bomb_speed : float

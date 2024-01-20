@@ -1,11 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://fjnlq1i5sey3"]
+[gd_scene load_steps=15 format=3 uid="uid://fjnlq1i5sey3"]
 
 [ext_resource type="Script" path="res://Game/Scripts/player.gd" id="1_bmv65"]
+[ext_resource type="PackedScene" uid="uid://5wy2qsaj6nbw" path="res://Audio/Nodes/sfx_package.tscn" id="2_hut0g"]
 [ext_resource type="Script" path="res://Game/Scripts/bomb_handling.gd" id="3_4s8s0"]
+[ext_resource type="AudioStream" uid="uid://dwhhjwhyutljy" path="res://Audio/Sfx/Game/Jump.wav" id="3_i0wml"]
 [ext_resource type="Texture2D" uid="uid://cxmcf3hf74yhb" path="res://Game/Textures/Hand.png" id="4_dxdit"]
 [ext_resource type="Texture2D" uid="uid://bb2h5fukhds3y" path="res://Game/Textures/Body.png" id="5_574vr"]
 [ext_resource type="Texture2D" uid="uid://cfq3wdal4isvs" path="res://Game/Textures/Head.png" id="5_kq8xt"]
-[ext_resource type="Texture2D" uid="uid://cxekg5x42ai1a" path="res://Game/Textures/Glow.png" id="6_p113r"]
+[ext_resource type="Texture2D" uid="uid://0roajo6ccttg" path="res://Game/Textures/Marker.png" id="6_lc3so"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m4v1l"]
 size = Vector2(84, 100)
@@ -84,11 +86,15 @@ scale = Vector2(0.5, 0.5)
 collision_layer = 2
 script = ExtResource("1_bmv65")
 
+[node name="SFXPackage" parent="." instance=ExtResource("2_hut0g")]
+bus = &"Sfx"
+sfx = Array[AudioStream]([ExtResource("3_i0wml")])
+
 [node name="PinJoint2D" type="PinJoint2D" parent="."]
 position = Vector2(0, -24)
 node_a = NodePath("..")
 node_b = NodePath("../Body")
-softness = 2.0
+softness = 1.4
 angular_limit_lower = -0.785398
 angular_limit_upper = 0.785398
 
@@ -99,6 +105,9 @@ shape = SubResource("RectangleShape2D_m4v1l")
 [node name="HandPos" type="Marker2D" parent="."]
 position = Vector2(85, 0)
 
+[node name="MarkerPos" type="Marker2D" parent="."]
+position = Vector2(0, -122)
+
 [node name="Head" type="Sprite2D" parent="."]
 position = Vector2(4.76837e-07, -30)
 scale = Vector2(0.196868, 0.196868)
@@ -106,6 +115,12 @@ texture = ExtResource("5_kq8xt")
 
 [node name="Hand" type="Node" parent="."]
 script = ExtResource("3_4s8s0")
+
+[node name="Marker" type="Sprite2D" parent="Hand"]
+visible = false
+position = Vector2(-4.54747e-13, -61)
+scale = Vector2(0.243902, 0.22774)
+texture = ExtResource("6_lc3so")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Hand"]
 root_node = NodePath("../..")
@@ -140,9 +155,3 @@ shape = SubResource("CapsuleShape2D_t7we3")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2(0, -31)
 shape = SubResource("CircleShape2D_as7tv")
-
-[node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(0, -18)
-scale = Vector2(0.337017, 0.337017)
-energy = 0.6
-texture = ExtResource("6_p113r")

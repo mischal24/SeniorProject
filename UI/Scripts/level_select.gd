@@ -25,37 +25,58 @@ func _ready():
 
 #region Custom Functions
 func _on_next_pressed():
+	UISFX.play_sfx(1)
 	GameData.selected_map += 1
 	if GameData.selected_map > GameData.maps.size()-1:
 		GameData.selected_map = 0
 	$Next.release_focus()
 
 func _on_prev_pressed():
+	UISFX.play_sfx(1)
 	GameData.selected_map -= 1
 	if GameData.selected_map < 0:
 		GameData.selected_map = GameData.maps.size()-1
 	$Prev.release_focus()
 
+func _on_next_mouse_entered():
+	UISFX.play_sfx(2)
+
+func _on_prev_mouse_entered():
+	UISFX.play_sfx(2)
+
 func hide_scene():
+	UISFX.play_sfx(0)
 	$AnimationPlayer.play("hide")
 
 func show_scene():
 	$Start.hide()
 	$PlayerPanels/P1Panel/AnimationPlayer.play("lift")
+	p1_joined = false
 	$PlayerPanels/P2Panel/AnimationPlayer.play("lift")
-	$PlayerPanels/P2Panel/AnimationPlayer.play("lift")
+	p2_joined = false
+	$PlayerPanels/P3Panel/AnimationPlayer.play("lift")
+	p3_joined = false
 	$PlayerPanels/P4Panel/AnimationPlayer.play("lift")
+	p4_joined = false
 	$AnimationPlayer.play("show")
 #endregion
 
 #region UI Logic
+var hold_time : float = 0
 func _process(delta):
 	if GameData.selected_map < GameData.maps_images.size():
 		$Image.texture = GameData.maps_images[GameData.selected_map]
-	if Input.is_action_just_pressed("Back") and not GameData.game_started:
+
+	if Input.is_action_pressed("Back") and not GameData.game_started:
+		hold_time += 1 * delta
+	if hold_time > 0.7:
 		$AnimationPlayer.play("ToMainMenu")
 		await $AnimationPlayer.animation_finished
-		get_tree().change_scene_to_file("res://UI/Scenes/main_menu.tscn")
+		get_tree().call_deferred("change_scene_to_file", "res://UI/Scenes/main_menu.tscn")
+	else:
+		if Input.is_action_just_released("Back"):
+			hold_time = 0
+
 	if GameData.player_list.size() >= GameData.min_player_count:
 		$Start.show()
 	else:
@@ -63,40 +84,52 @@ func _process(delta):
 	match GameData.player_list.size():
 		0:
 			if p1_joined:
+				if not GameData.game_started:
+					UISFX.play_sfx(2)
 				$PlayerPanels/P1Panel/AnimationPlayer.play("lift")
 				p1_joined = false
 		1:
 			if not p1_joined:
+				UISFX.play_sfx(1)
 				$PlayerPanels/P1Panel/AnimationPlayer.play("drop")
 				p1_joined = true
 				p2_joined = false
 				p3_joined = false
 				p4_joined = false
 			if p2_joined:
+				if not GameData.game_started:
+					UISFX.play_sfx(2)
 				$PlayerPanels/P2Panel/AnimationPlayer.play("lift")
 				p2_joined = false
 		2:
 			if not p2_joined:
+				UISFX.play_sfx(1)
 				$PlayerPanels/P2Panel/AnimationPlayer.play("drop")
 				p1_joined = true
 				p2_joined = true
 				p3_joined = false
 				p4_joined = false
 			if p3_joined:
+				if not GameData.game_started:
+					UISFX.play_sfx(2)
 				$PlayerPanels/P3Panel/AnimationPlayer.play("lift")
 				p3_joined = false
 		3:
 			if not p3_joined:
+				UISFX.play_sfx(1)
 				$PlayerPanels/P3Panel/AnimationPlayer.play("drop")
 				p1_joined = true
 				p2_joined = true
 				p3_joined = true
 				p4_joined = false
 			if p4_joined:
+				if not GameData.game_started:
+					UISFX.play_sfx(2)
 				$PlayerPanels/P4Panel/AnimationPlayer.play("lift")
 				p4_joined = false
 		4:
 			if not p4_joined:
+				UISFX.play_sfx(1)
 				$PlayerPanels/P4Panel/AnimationPlayer.play("drop")
 				p1_joined = true
 				p2_joined = true

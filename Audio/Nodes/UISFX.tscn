@@ -1,0 +1,13 @@
+[gd_scene load_steps=5 format=3 uid="uid://yvglcobcfx74"]
+
+[ext_resource type="Script" path="res://Audio/Nodes/UISFX.gd" id="1_7eak1"]
+[ext_resource type="AudioStream" uid="uid://co0a13x3cg4u3" path="res://Audio/Sfx/UI/GameStart.wav" id="2_wu1h1"]
+[ext_resource type="AudioStream" uid="uid://b4slvvplcof4y" path="res://Audio/Sfx/UI/Select.wav" id="3_ytjot"]
+[ext_resource type="AudioStream" uid="uid://be100vjo3sgcb" path="res://Audio/Sfx/UI/Hover.wav" id="4_ok5a1"]
+
+[node name="UISFX" type="Node"]
+script = ExtResource("1_7eak1")
+sfx = Array[AudioStream]([ExtResource("2_wu1h1"), ExtResource("3_ytjot"), ExtResource("4_ok5a1")])
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+bus = &"Sfx"

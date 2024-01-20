@@ -19,6 +19,8 @@ func _process(delta):
 
 func _input(_event):
 	if Input.is_anything_pressed():
+		UISFX.play_sfx(0)
+		MUSIC.start()
 		to_main_menu()
 #endregion
 

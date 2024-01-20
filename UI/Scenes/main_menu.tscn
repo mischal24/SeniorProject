@@ -340,9 +340,13 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
+[connection signal="mouse_entered" from="Play" to="." method="_on_play_mouse_entered"]
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="mouse_entered" from="Settings" to="." method="_on_settings_mouse_entered"]
 [connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]
+[connection signal="mouse_entered" from="Promo" to="." method="_on_promo_mouse_entered"]
 [connection signal="pressed" from="Promo" to="." method="_on_promo_pressed"]
+[connection signal="mouse_entered" from="Quit" to="." method="_on_quit_mouse_entered"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="PromoPopup/Open" to="." method="_on_open_pressed"]
 [connection signal="pressed" from="PromoPopup/No" to="." method="_on_no_pressed"]

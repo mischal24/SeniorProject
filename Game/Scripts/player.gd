@@ -49,26 +49,23 @@ func _physics_process(delta):
 			var c = Color("735DCB")
 			modulate = c
 			$Hand/Sprite2D.modulate = c
-			$PointLight2D.color = c
 		0:
 			var c = Color("FF6F9A")
 			modulate = c
 			$Hand/Sprite2D.modulate = c
-			$PointLight2D.color = c
 		1:
 			var c = Color("7CBA7E")
 			modulate = c
 			$Hand/Sprite2D.modulate = c
-			$PointLight2D.color = c
 		2:
 			var c = Color("F8DF5C")
 			modulate = c
 			$Hand/Sprite2D.modulate = c
-			$PointLight2D.color = c
 #endregion
 
 #region Custom Functions
 func jump():
+	$SFXPackage.play_sfx(0)
 	velocity.y = GameData.jump_velocity
 
 func move(direction):

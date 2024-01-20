@@ -7,6 +7,11 @@ func _physics_process(_delta):
 			i.global_position = lerp(i.global_position, $Sprite2D.global_position, 0.7)
 		else:
 			pass
+	$Marker.global_position = lerp($Marker.global_position, get_parent().get_node("MarkerPos").global_position, 0.2)
+	if has_node("Bomb"):
+		$Marker.show()
+	else:
+		$Marker.hide()
 #endregion
 
 #region Custom Functions
@@ -35,6 +40,9 @@ func explode(item):
 	item.global_position = GameData.center
 	item.call_deferred("reparent", get_tree().current_scene)
 	var parent = get_parent()
+	var expl = GameData.explosion_scene.instantiate()
+	expl.global_position = parent.global_position
+	get_tree().current_scene.add_child(expl)
 	GameData.player_list.erase(str(parent.current_method))
 	parent.queue_free()
 #endregion

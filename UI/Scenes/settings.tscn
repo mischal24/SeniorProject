@@ -216,7 +216,7 @@ offset_top = 666.0
 offset_right = 1245.0
 offset_bottom = 705.0
 bbcode_enabled = true
-text = "[center] [b] Press [color=735DCB]‘ESC’[/color] or [color=735DCB]‘🅨’[/color] to go back [/b] [/center]"
+text = "[center] [b] Press [color=735DCB]‘ESC’[/color] or [color=735DCB]‘🅑’[/color] to go back [/b] [/center]"
 scroll_active = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

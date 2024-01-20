@@ -1,7 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://tnqrgv8bpkdr"]
+[gd_scene load_steps=8 format=3 uid="uid://tnqrgv8bpkdr"]
 
 [ext_resource type="Script" path="res://Game/Scripts/bomb.gd" id="1_m61os"]
 [ext_resource type="Texture2D" uid="uid://n514igpthhsk" path="res://Game/Textures/Bomb.png" id="2_35oq7"]
+[ext_resource type="PackedScene" uid="uid://5wy2qsaj6nbw" path="res://Audio/Nodes/sfx_package.tscn" id="2_buidg"]
+[ext_resource type="Texture2D" uid="uid://cxekg5x42ai1a" path="res://Game/Textures/Glow.png" id="3_6evjr"]
+[ext_resource type="AudioStream" uid="uid://df736rmchjnxe" path="res://Audio/Sfx/Game/Hit.wav" id="3_lom86"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e4clr"]
 radius = 17.0
@@ -12,6 +15,10 @@ radius = 40.0125
 [node name="Bomb" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_m61os")
+
+[node name="SFXPackage" parent="." instance=ExtResource("2_buidg")]
+bus = &"Sfx"
+sfx = Array[AudioStream]([ExtResource("3_lom86")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3)
@@ -33,6 +40,12 @@ debug_color = Color(0.980392, 0.109804, 0.211765, 0.419608)
 wait_time = 10.0
 one_shot = true
 autostart = true
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, 3)
+scale = Vector2(0.133333, 0.14)
+energy = 0.3
+texture = ExtResource("3_6evjr")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

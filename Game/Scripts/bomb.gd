@@ -8,6 +8,7 @@ func _ready():
 func _physics_process(delta):
 	var collision_info = move_and_collide(velocity * delta)
 	if collision_info:
+		$SFXPackage.play_sfx(0)
 		velocity = velocity.bounce(collision_info.get_normal())
 		if collision_info.get_collider() is Player_Class: return
 		GameData.current_bomb_speed.x = clamp(velocity.x, -GameData.max_bomb_speed, GameData.max_bomb_speed)
