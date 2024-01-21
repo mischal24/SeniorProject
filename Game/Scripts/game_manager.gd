@@ -56,6 +56,8 @@ func start_game():
 			scene.add_child(added_player)
 		else:
 			print("invald instance")
+	for i in scene.get_children():
+		scene.get_node("Camera").add_target(i)
 	GameData.game_started = true
 	await get_tree().create_timer(5).timeout
 	scene.get_node("CanvasLayer/Timer").hide()

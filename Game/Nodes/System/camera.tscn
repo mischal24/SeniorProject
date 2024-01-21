@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bakg1friggygs"]
+
+[ext_resource type="Script" path="res://Game/Scripts/camera.gd" id="1_7bk70"]
+
+[node name="Camera" type="Camera2D"]
+position_smoothing_enabled = true
+script = ExtResource("1_7bk70")
+move_speed = 0.1
+min_zoom = 1.0

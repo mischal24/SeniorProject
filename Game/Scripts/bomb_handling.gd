@@ -43,6 +43,7 @@ func explode(item):
 	var expl = GameData.explosion_scene.instantiate()
 	expl.global_position = parent.global_position
 	get_tree().current_scene.add_child(expl)
+	get_tree().current_scene.get_node("Camera").remove_target(parent)
 	GameData.player_list.erase(str(parent.current_method))
 	parent.queue_free()
 #endregion

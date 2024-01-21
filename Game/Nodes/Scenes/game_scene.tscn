@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://bht8wu4akp3do"]
+[gd_scene load_steps=9 format=3 uid="uid://bht8wu4akp3do"]
 
 [ext_resource type="PackedScene" uid="uid://bu2biclqd30wk" path="res://Game/Nodes/System/game_manager.tscn" id="1_5kvex"]
+[ext_resource type="PackedScene" uid="uid://bakg1friggygs" path="res://Game/Nodes/System/camera.tscn" id="1_xpmx4"]
 [ext_resource type="PackedScene" uid="uid://cfsthmkj5vikw" path="res://UI/Scenes/level_select.tscn" id="2_ytplu"]
 [ext_resource type="PackedScene" uid="uid://b1k3aj25eyhsw" path="res://UI/Scenes/timer.tscn" id="3_dkbdd"]
 
@@ -16,6 +17,8 @@ normal = Vector2(1, 0)
 normal = Vector2(-1, 0)
 
 [node name="Game Scene" type="Node2D"]
+
+[node name="Camera" parent="." instance=ExtResource("1_xpmx4")]
 
 [node name="Game Manager" parent="." instance=ExtResource("1_5kvex")]
 
