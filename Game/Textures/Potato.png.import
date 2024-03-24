@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6rk5tvq3jj8n"
-path="res://.godot/imported/Screenshot 2024-01-20 122359.png-5705c87e24513cd6ccbd42e9e68c6576.ctex"
+uid="uid://cl75voem7l45q"
+path="res://.godot/imported/Potato.png-5ebccab92b714928e71cc986565e6941.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Game/Textures/Screenshot 2024-01-20 122359.png"
-dest_files=["res://.godot/imported/Screenshot 2024-01-20 122359.png-5705c87e24513cd6ccbd42e9e68c6576.ctex"]
+source_file="res://Game/Textures/Potato.png"
+dest_files=["res://.godot/imported/Potato.png-5ebccab92b714928e71cc986565e6941.ctex"]
 
 [params]
 

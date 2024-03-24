@@ -10,10 +10,13 @@ config_version=5
 
 [application]
 
-config/name="SeniorProject"
+config/name="Bombastic"
+config/description="A Quick game of hot potato! Throw the bomb to your friends before it explodes, rather it them than you."
 run/main_scene="res://UI/Scenes/title.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/show_image=false
+config/icon="res://Game/Textures/Head.png"
 
 [audio]
 

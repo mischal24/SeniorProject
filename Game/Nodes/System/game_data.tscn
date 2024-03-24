@@ -3,15 +3,14 @@
 [ext_resource type="Script" path="res://Game/Scripts/game_data.gd" id="1_4sykl"]
 [ext_resource type="PackedScene" uid="uid://ccknxnogo4bhh" path="res://Game/Nodes/Scenes/Map1.tscn" id="3_306n6"]
 [ext_resource type="PackedScene" uid="uid://dfepnutlhivlm" path="res://Game/Nodes/Scenes/Map2.tscn" id="4_8akwq"]
-[ext_resource type="Texture2D" uid="uid://b6rk5tvq3jj8n" path="res://Game/Textures/Screenshot 2024-01-20 122359.png" id="5_o54ax"]
+[ext_resource type="Texture2D" uid="uid://cmm41hv4atgid" path="res://UI/Textures/Frame 5.png" id="5_0gf37"]
 [ext_resource type="PackedScene" uid="uid://ct0u7cu44vypy" path="res://Game/Nodes/Scenes/Map3.tscn" id="5_pmuvu"]
-[ext_resource type="Texture2D" uid="uid://txxasrryrjn7" path="res://Game/Textures/Screenshot 2024-01-20 122423.png" id="6_6v262"]
-[ext_resource type="Texture2D" uid="uid://t6s3bum1k1vj" path="res://Game/Textures/Screenshot 2024-01-20 122442.png" id="7_1jq1a"]
+[ext_resource type="Texture2D" uid="uid://c6emliy32rjmg" path="res://UI/Textures/Frame 6.png" id="6_samdk"]
+[ext_resource type="Texture2D" uid="uid://bvni3fagbfoj" path="res://UI/Textures/Frame 7.png" id="7_q2qd3"]
 
 [node name="Game Data" type="Node"]
 script = ExtResource("1_4sykl")
-min_player_count = 1
-jump_height = 100.0
+jump_height = 150.0
 jump_time_till_peak = 0.5
 jump_time_till_fall = 0.5
 initial_bomb_speed = 400.0
@@ -19,4 +18,4 @@ max_bomb_speed = 700.0
 additive_bomb_speed = 1.4
 bomb_collision_delay = 0.6
 maps = Array[PackedScene]([ExtResource("3_306n6"), ExtResource("4_8akwq"), ExtResource("5_pmuvu")])
-maps_images = Array[Texture]([ExtResource("5_o54ax"), ExtResource("6_6v262"), ExtResource("7_1jq1a")])
+maps_images = Array[Texture]([ExtResource("5_0gf37"), ExtResource("6_samdk"), ExtResource("7_q2qd3")])

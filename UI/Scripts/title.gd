@@ -9,24 +9,24 @@ var transitioning : bool = false
 func _ready():
 	if $AnimationPlayer.current_animation != "ToMainMenu":
 		$AnimationPlayer.set_current_animation("Idle")
-		$AnimationPlayer.stop()
+		$AnimationPlayer.call_deferred("stop")
 #endregion
 
 #region UI Logic
-func _process(delta):
+func _process(_delta):
 	if $AnimationPlayer.current_animation != "ToMainMenu":
 		$AnimationPlayer.play()
 
 func _input(_event):
 	if Input.is_anything_pressed():
-		UISFX.play_sfx(0)
-		MUSIC.start()
 		to_main_menu()
 #endregion
 
 #region Custom Functions
 func to_main_menu():
 	if transitioning == false:
+		UISFX.play_sfx(0)
+		MUSIC.start()
 		$AnimationPlayer.set_current_animation("ToMainMenu")
 		$AnimationPlayer.play()
 		transitioning = true

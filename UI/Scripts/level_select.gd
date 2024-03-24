@@ -67,6 +67,11 @@ func _process(delta):
 	if GameData.selected_map < GameData.maps_images.size():
 		$Image.texture = GameData.maps_images[GameData.selected_map]
 
+	$Next.size = Vector2(17, 28)
+	$Next.position = Vector2(1220, 446)
+	$Prev.size = Vector2(17, 28)
+	$Prev.position = Vector2(1185, 446)
+
 	if Input.is_action_pressed("Back") and not GameData.game_started:
 		hold_time += 1 * delta
 	if hold_time > 0.7:

@@ -1,7 +1,11 @@
-[gd_scene load_steps=21 format=3 uid="uid://cfsthmkj5vikw"]
+[gd_scene load_steps=35 format=3 uid="uid://cfsthmkj5vikw"]
 
 [ext_resource type="Theme" uid="uid://731hjin1h8kg" path="res://UI/Resources/Themes/level_select_theme.tres" id="1_rk7yo"]
 [ext_resource type="Script" path="res://UI/Scripts/level_select.gd" id="2_i8gnv"]
+[ext_resource type="Texture2D" uid="uid://pssacjaxqcea" path="res://UI/Textures/Right.png" id="3_ch28v"]
+[ext_resource type="Texture2D" uid="uid://bav8ssrpakbwo" path="res://UI/Textures/RightHover.png" id="4_ekatj"]
+[ext_resource type="Texture2D" uid="uid://bfr42r6vmi4c3" path="res://UI/Textures/Left.png" id="4_uvcdo"]
+[ext_resource type="Texture2D" uid="uid://du43km5xuyaxr" path="res://UI/Textures/LeftHover.png" id="6_coyq5"]
 
 [sub_resource type="Animation" id="Animation_fi4ug"]
 resource_name = "drop"
@@ -150,6 +154,36 @@ _data = {
 "drop": SubResource("Animation_8qnmi"),
 "lift": SubResource("Animation_5y54f")
 }
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x01mh"]
+texture = ExtResource("3_ch28v")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t7ktk"]
+texture = ExtResource("4_ekatj")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nmdeo"]
+texture = ExtResource("4_ekatj")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0rbwf"]
+texture = ExtResource("3_ch28v")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hegka"]
+texture = ExtResource("4_ekatj")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sp605"]
+texture = ExtResource("4_uvcdo")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kskd1"]
+texture = ExtResource("6_coyq5")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8mv3e"]
+texture = ExtResource("6_coyq5")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e63gd"]
+texture = ExtResource("4_uvcdo")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6muia"]
+texture = ExtResource("6_coyq5")
 
 [sub_resource type="Animation" id="Animation_edi4i"]
 resource_name = "FromMainMenu"
@@ -410,19 +444,36 @@ bbcode_enabled = true
 text = "[center][b] Press [color=735DCB]'Enter'[/color] or [color=735DCB]'▶'[/color] to Start [/b][/center]"
 
 [node name="Next" type="Button" parent="."]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0125
+anchor_right = -0.0125
 offset_left = 1225.0
 offset_top = 446.0
 offset_right = 1253.0
 offset_bottom = 474.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_x01mh")
+theme_override_styles/hover = SubResource("StyleBoxTexture_t7ktk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_nmdeo")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_0rbwf")
+theme_override_styles/focus = SubResource("StyleBoxTexture_hegka")
+icon_alignment = 1
+expand_icon = true
 metadata/_edit_use_anchors_ = true
 
 [node name="Prev" type="Button" parent="."]
 layout_mode = 0
-offset_left = 1186.0
+offset_left = 1185.0
 offset_top = 446.0
-offset_right = 1214.0
+offset_right = 1202.0
 offset_bottom = 474.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_sp605")
+theme_override_styles/hover = SubResource("StyleBoxTexture_kskd1")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_8mv3e")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_e63gd")
+theme_override_styles/focus = SubResource("StyleBoxTexture_6muia")
+icon_alignment = 1
+expand_icon = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

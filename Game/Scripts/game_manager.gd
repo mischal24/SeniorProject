@@ -30,7 +30,7 @@ func remove_player(input):
 #endregion
 
 #region Game Logic
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("Start"):
 		start_game()
 	if GameData.player_list.size() < GameData.min_player_count and GameData.game_started:
@@ -39,6 +39,8 @@ func _process(delta):
 func start_game():
 	if GameData.player_list.size() < GameData.min_player_count: return
 	if GameData.player_list.size() > GameData.max_player_count: return
+	if GameData.game_started: return
+	get_parent().get_node("CanvasLayer/Winner Text").set_up()
 	var new_bomb = GameData.bomb_scene.instantiate()
 	new_bomb.global_position = GameData.center
 	scene.add_child(new_bomb)
@@ -55,7 +57,7 @@ func start_game():
 
 			scene.add_child(added_player)
 		else:
-			print("invald instance")
+			print("invalid instance")
 	for i in scene.get_children():
 		scene.get_node("Camera").add_target(i)
 	GameData.game_started = true
@@ -63,16 +65,22 @@ func start_game():
 	scene.get_node("CanvasLayer/Timer").hide()
 
 func restart_game():
-	scene.get_node("CanvasLayer/Level Select").show_scene()
-	await get_tree().create_timer(1).timeout
-	scene.get_node("CanvasLayer/Timer").hide()
-	GameData.player_list.clear()
+	var winning_color
 	for i in scene.get_children():
 		if i is Player_Class:
+			winning_color = i.modulate
+	await get_parent().get_node("CanvasLayer/Winner Text").display_winner(winning_color)
+	scene.get_node("CanvasLayer/Level Select").show_scene()
+	scene.get_node("CanvasLayer/Timer").hide()
+	GameData.player_list.clear()
+	GameData.game_started = false
+	await get_tree().create_timer(1).timeout
+	for i in scene.get_children():
+		if i is Player_Class:
+			scene.get_node("Camera").remove_target(i)
 			i.queue_free()
 		if i is Bomb_Class:
 			i.queue_free()
 		if i.is_in_group("Maps"):
 			i.queue_free()
-	GameData.game_started = false
 #endregion

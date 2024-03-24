@@ -3,6 +3,9 @@ class_name Bomb_Class
 
 #region Initial Movement
 func _ready():
+	var bomb_tex_num = randi_range(1, 10)
+	if bomb_tex_num == 2:
+		$Sprite2D.texture = load("res://Game/Textures/Potato.png")
 	velocity = Vector2(1, -1) * GameData.initial_bomb_speed
 
 func _physics_process(delta):
@@ -11,6 +14,7 @@ func _physics_process(delta):
 		$SFXPackage.play_sfx(0)
 		velocity = velocity.bounce(collision_info.get_normal())
 		if collision_info.get_collider() is Player_Class: return
+		get_tree().current_scene.get_node("Camera").screen_shake(0.2, 0.8)
 		GameData.current_bomb_speed.x = clamp(velocity.x, -GameData.max_bomb_speed, GameData.max_bomb_speed)
 		GameData.current_bomb_speed.y = clamp(velocity.y, -GameData.max_bomb_speed, GameData.max_bomb_speed)
 		GameData.current_bomb_speed *= Vector2(GameData.additive_bomb_speed, GameData.additive_bomb_speed)

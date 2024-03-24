@@ -6,7 +6,15 @@ var transitioning_to_menu : bool = false
 
 var resolutions : Array[Vector2] = [
 	Vector2(1280, 720),
-	Vector2(1920, 1080)
+	Vector2(3840, 2160),
+	Vector2(2560, 1440),
+	Vector2(1920, 1080),
+	Vector2(1366, 768),
+	Vector2(1536, 864),
+	Vector2(1440, 900),
+	Vector2(1600, 900),
+	Vector2(1024, 600),
+	Vector2(800, 600)
 ]
 #endregion
 

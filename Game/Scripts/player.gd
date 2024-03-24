@@ -29,10 +29,17 @@ func _physics_process(delta):
 		var direction = Input.get_joy_axis(current_method, JOY_AXIS_LEFT_X)
 		move(direction)
 
-		if Input.get_joy_axis(current_method, JOY_AXIS_TRIGGER_LEFT) > 0 or Input.get_joy_axis(current_method, JOY_AXIS_TRIGGER_RIGHT) > 0:
-			$Hand.throw_bomb(Vector2(
+		var cont_dir = Vector2(
 					Input.get_joy_axis(current_method, JOY_AXIS_RIGHT_X),
 					Input.get_joy_axis(current_method, JOY_AXIS_RIGHT_Y)
+				)
+		if Input.get_joy_axis(current_method, JOY_AXIS_TRIGGER_LEFT) > 0 or Input.get_joy_axis(current_method, JOY_AXIS_TRIGGER_RIGHT) > 0:
+			if cont_dir.abs() > Vector2(0.3, 0.3):
+				$Hand.throw_bomb(cont_dir)
+			else:
+				$Hand.throw_bomb(Vector2(
+					randf_range(-1,1),
+					randf_range(-1,1)
 				))
 
 	if velocity.x < 0 and is_flipped:

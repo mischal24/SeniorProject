@@ -4,17 +4,16 @@
 [ext_resource type="PackedScene" uid="uid://bakg1friggygs" path="res://Game/Nodes/System/camera.tscn" id="1_xpmx4"]
 [ext_resource type="PackedScene" uid="uid://cfsthmkj5vikw" path="res://UI/Scenes/level_select.tscn" id="2_ytplu"]
 [ext_resource type="PackedScene" uid="uid://b1k3aj25eyhsw" path="res://UI/Scenes/timer.tscn" id="3_dkbdd"]
+[ext_resource type="PackedScene" uid="uid://brwdnfcvvhs1k" path="res://UI/Scenes/winner_text.tscn" id="5_rtxff"]
+[ext_resource type="Shader" path="res://UI/Resources/Shaders/vignette.gdshader" id="6_j2qwh"]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6eeed"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ktwbe"]
+shader = ExtResource("6_j2qwh")
+shader_parameter/alpha = 0.6
+shader_parameter/inner_radius = 0.69
+shader_parameter/outer_radius = 1.29
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_y4fcl"]
-normal = Vector2(0, 1)
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_uuw14"]
-normal = Vector2(1, 0)
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_okron"]
-normal = Vector2(-1, 0)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_12jv0"]
 
 [node name="Game Scene" type="Node2D"]
 
@@ -22,26 +21,22 @@ normal = Vector2(-1, 0)
 
 [node name="Game Manager" parent="." instance=ExtResource("1_5kvex")]
 
-[node name="Floor" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
-position = Vector2(1280, 720)
-shape = SubResource("WorldBoundaryShape2D_6eeed")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Floor"]
-shape = SubResource("WorldBoundaryShape2D_y4fcl")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Floor"]
-shape = SubResource("WorldBoundaryShape2D_uuw14")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Floor"]
-position = Vector2(1280, 720)
-shape = SubResource("WorldBoundaryShape2D_okron")
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_ktwbe")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_12jv0")
+metadata/_edit_use_anchors_ = true
 
 [node name="Timer" parent="CanvasLayer" instance=ExtResource("3_dkbdd")]
 visible = false
+
+[node name="Winner Text" parent="CanvasLayer" instance=ExtResource("5_rtxff")]
 
 [node name="Level Select" parent="CanvasLayer" instance=ExtResource("2_ytplu")]
 
